@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock title %}
+
+{% block content %}
+<div class="welcome">
+    <p>Welcome to To-do-list-app. This app was created with django web framework. Its main aim is to help people organize their
+        work.
+    </p>
+    {% if user.is_authenticated %}
+    <button class="btn btn-primary"><a style="color: white;" href="{% url 'task_list' %}">View my tasks</a></button>
+    {% else %}
+    <p>Please <a href="{% url 'login' %}">login </a> to view your tasks. If you have not an account yet <a
+            href="{% url 'signup' %}">sign up</a></p>
+</div>
+{% endif %}
+{% endblock content %}

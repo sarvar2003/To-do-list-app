@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Tasks {% endblock title %}
+
+{% block content %}
+    {% for task in all_tasks %}
+    
+    <div class="card">
+        <div class="card-header">
+          {{task.title}}
+        </div>
+        <div class="card-body">
+          <p class="card-text" id='card_text' ><input type="checkbox"> {{task.task}}</p>
+        </div>
+        <div class="card-footer text-muted">
+          <a href="{% url 'update_task' task.pk %}">Edit</a> |
+          <a href="{% url 'delete_task' task.pk %}">Delete</a>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock content %}
+
+
+
